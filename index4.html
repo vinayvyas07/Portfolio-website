@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>VINAY-Developer Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet" />
+    <!-- Font Awesome -->
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            color: white;
+            font-family: 'poppins', sans-serif;
+            overflow-x: hidden;
+            /* Background image with fixed attachment */
+            background: url('second.png') no-repeat center center fixed;
+            background-size: cover;
+            /* Fallback background color */
+            min-height: 100vh;
+        }
+
+        /* Dark overlay to ensure text readability */
+        body::after {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(12, 11, 94, 0.7);
+            z-index: -1;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            height: 95px;
+            width: 100%;
+            position: relative;
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: center;
+        }
+
+        nav ul li {
+            list-style: none;
+            margin: 0 23px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: white;
+        }
+
+        nav ul li a:hover {
+            color: lavender;
+            font-size: 1.02rem;
+        }
+
+        .left {
+            font-size: 3rem;
+            font-family: Kapakana;
+            font-style: italic;
+        }
+
+        .firstSection {
+            display: flex;
+            justify-content: space-between;
+            margin: 25px auto 0;
+            align-items: center;
+            width: 90%;
+            max-width: 1200px;
+            position: relative;
+        }
+
+        .leftSection {
+            width: 60%;
+            font-size: 3rem;
+        }
+
+        .rightSection {
+            width: 40%;
+            display: flex;
+            justify-content: center;
+        }
+
+        .rightSection img {
+            max-width: 140%;
+            height: auto;
+            border-radius: 10px;
+            /* Removed box-shadow and added explicit border settings */
+            box-shadow: none;
+            border: none;
+            outline: none;
+            display: block;
+            /* Removes any potential spacing below image */
+        }
+
+        .textColor {
+            color: rgb(178, 115, 238);
+        }
+
+        #element {
+            color: rgb(178, 115, 238);
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            font-size: 3rem;
+        }
+
+        .secondSection {
+            max-width: 90vw;
+            margin: 20px auto;
+            padding: 30px;
+            font-size: 1rem;
+            position: relative;
+            height: 80vh;
+            border-radius: 10px;
+        }
+
+        main hr {
+            height: 3px;
+            background: lavender;
+            margin: 30px auto;
+            border: 0;
+            width: 90%;
+        }
+
+        /* Skills section styling */
+        .skills-section {
+            padding: 40px 20px;
+            max-width: 1000px;
+            margin: 0 auto 60px auto;
+        }
+
+        .skills-section h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            color: rgb(178, 115, 238);
+            margin-bottom: 40px;
+            font-weight: 600;
+        }
+
+        .skill-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 25px;
+        }
+
+        .skill-card {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 25px;
+            border-radius: 12px;
+            text-align: center;
+            font-weight: 500;
+            font-size: 1.15rem;
+            transition: transform 0.3s ease;
+            cursor: default;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 8px 16px rgba(178, 115, 238, 0.4);
+        }
+
+        /* Projects section styling */
+        .projects-section {
+            max-width: 1000px;
+            margin: 0 auto 60px auto;
+            padding: 40px 20px;
+        }
+
+        .projects-section h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            color: rgb(178, 115, 238);
+            margin-bottom: 40px;
+            font-weight: 600;
+        }
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .project-card {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.3);
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .project-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 30px rgba(178, 115, 238, 0.5);
+        }
+
+        .project-image {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+        }
+
+        .project-content {
+            padding: 20px;
+            color: white;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .project-content h3 {
+            margin-bottom: 10px;
+            font-weight: 700;
+            font-size: 1.3rem;
+        }
+
+        .project-content p {
+            font-size: 1rem;
+            margin-bottom: 15px;
+            flex-grow: 1;
+            line-height: 1.3;
+        }
+
+        .project-links a {
+            text-decoration: none;
+            color: rgb(178, 115, 238);
+            font-weight: 600;
+            margin-right: 15px;
+            transition: color 0.3s ease;
+        }
+
+        .project-links a:hover {
+            color: white;
+        }
+
+        /* Footer styling */
+        footer {
+            background-color: rgba(12, 11, 94, 0.8);
+            padding: 25px 0;
+            text-align: center;
+            color: white;
+            font-size: 1rem;
+        }
+
+        .footer-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+
+        .footer-container div a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            transition: color 0.3s ease;
+        }
+
+        .footer-container div a:hover {
+            color: rgb(178, 115, 238);
+        }
+
+        .footer-container i {
+            font-size: 1.2rem;
+            margin-right: 8px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div class="left">V.V</div>
+            <div class="right">
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#contact">Contact Me</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <section class="firstSection" id="home">
+            <div class="leftSection">
+                Hi, My name is <span class="textColor">Vinay</span>
+                <div>and I am a passionate
+                    <br />
+                    <span id="element"></span>
+                </div>
+            </div>
+            <div class="rightSection">
+                <img src="first.png" alt="Developer Image" />
+            </div>
+        </section>
+        <hr />
+        <section class="skills-section" id="skills">
+            <h2>Skills</h2>
+            <div class="skill-grid">
+                <div class="skill-card" data-aos="fade-up"><strong>Languages:</strong><br />Java, Python, JavaScript</div>
+                <div class="skill-card" data-aos="fade-up"><strong>Database:</strong><br />MySQL</div>
+                <div class="skill-card" data-aos="fade-up"><strong>Frontend:</strong><br />HTML, CSS, Tailwind CSS</div>
+                <div class="skill-card" data-aos="fade-up"><strong>Tools:</strong><br />Microsoft 365, Git, Figma, Overleaf</div>
+                <div class="skill-card" data-aos="fade-up"><strong>Management:</strong><br />Event & Public Relations</div>
+                <div class="skill-card" data-aos="fade-up"><strong>Video Editing:</strong><br />Adobe Premiere Pro, Final Cut Pro, DaVinci Resolve</div>
+                <div class="skill-card" data-aos="fade-up"><strong>Graphics Designing:</strong><br />Adobe Photoshop, Illustrator, CorelDRAW</div>
+            </div>
+        </section>
+
+        <section class="projects-section" id="projects">
+            <h2>Projects</h2>
+            <div class="project-grid">
+                <div class="project-card" data-aos="fade-up">
+                    <img src="project1.jpg" alt="Project 1" class="project-image" />
+                    <div class="project-content">
+                        <h3>Project One</h3>
+                        <p>A web application for task management with real-time collaboration features.</p>
+                        <div class="project-links">
+                            <a href="https://github.com/vinayvyas07/project-one" target="_blank" rel="noopener noreferrer">GitHub</a>
+                            <a href="https://projectone.example.com" target="_blank" rel="noopener noreferrer">Live Demo</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card" data-aos="fade-up">
+                    <img src="project2.jpg" alt="Project 2" class="project-image" />
+                    <div class="project-content">
+                        <h3>Project Two</h3>
+                        <p>An e-commerce platform with integrated payment gateway and user dashboard.</p>
+                        <div class="project-links">
+                            <a href="https://github.com/vinayvyas07/project-two" target="_blank" rel="noopener noreferrer">GitHub</a>
+                            <a href="https://projecttwo.example.com" target="_blank" rel="noopener noreferrer">Live Demo</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card" data-aos="fade-up">
+                    <img src="project3.jpg" alt="Project 3" class="project-image" />
+                    <div class="project-content">
+                        <h3>Project Three</h3>
+                        <p>A mobile app for fitness tracking and workout planning.</p>
+                        <div class="project-links">
+                            <a href="https://github.com/vinayvyas07/project-three" target="_blank" rel="noopener noreferrer">GitHub</a>
+                            <a href="https://projectthree.example.com" target="_blank" rel="noopener noreferrer">Live Demo</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <hr />
+
+        <section id="contact">
+            <h2 style="text-align:center; color: rgb(178, 115, 238); margin-bottom: 30px;">Contact Me</h2>
+            <p style="text-align:center; font-size: 1.1rem;">
+                Feel free to reach out via any of the following:
+            </p>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-container">
+            <div>
+                <a href="https://www.linkedin.com/in/vinay-vyas-338544251/" target="_blank" rel="noopener noreferrer">
+                    <i class="fab fa-linkedin"></i>LinkedIn
+                </a>
+            </div>
+            <div>
+                <a href="https://github.com/vinayvyas07" target="_blank" rel="noopener noreferrer">
+                    <i class="fab fa-github"></i>GitHub
+                </a>
+            </div>
+            <div>
+                <a href="mailto:vyasvinay7705@gmail.com" target="_blank" rel="noopener noreferrer">
+                    <i class="fas fa-envelope"></i>vyasvinay7705@gmail.com
+                </a>
+            </div>
+            <div>
+                <a href="https://flowcv.com/resume/t0ccrsjov4m1" target="_blank" rel="noopener noreferrer">
+                    <i class="fas fa-file-alt"></i>Resume
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({ duration: 1000, once: true });
+
+        var typed = new Typed('#element', {
+            strings: ['Web Developer', 'Graphics Designer', 'Video Editor'],
+            typeSpeed: 100,
+            loop: true,
+        });
+    </script>
+</body>
+
+</html>
